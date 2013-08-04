@@ -1,0 +1,37 @@
+{
+    "name": "diffbug",
+
+    "version": "0.0.1",
+
+    "description": "An automated debugging tool for Node.js",
+
+    "author": "Feng Qiu <feng@ban90.com>",
+
+    "license": "GPL v2",
+  
+    "keywords": ["debug", "debugger", "probe"],
+  
+    "main": "lib/probe.js",
+
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+
+    "dependencies": {
+        "acorn": "0.3.x",
+        "objectdiff": "1.1.x"
+    },
+
+    "engines": {
+        "node": ">=0.4.x"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/halfninety/diffbug.git"
+    },
+  
+    "bugs": {
+        "url": "https://github.com/halfninety/diffbug/issues"
+    }
+}
