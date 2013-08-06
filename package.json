@@ -14,7 +14,9 @@
     "preferGlobal": true,
 
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "pretest": "jshint --config ./node_modules/yui-lint/jshint.json lib/*js lib/command/*js lib/vcs/*js lib/store/*js lib/util/*js test/*js test/instrumentation/*js test/cli/*js test/other/*js test/browser/*js",
+        "test": "test/run.js",
+        "posttest": "istanbul check-coverage --statements 95 --branches 80"
     },
 
     "bin": {
@@ -36,6 +38,15 @@
         "abbrev": "1.0.x",
         "wordwrap": "0.0.x",
         "resolve": "0.4.x"
+    },
+
+    "devDependencies": {
+        "rimraf": "*",
+        "nodeunit": "*",
+        "jshint": "*",
+        "yui-lint": "*",
+        "istanbul": "*",
+        "requirejs": "2.x"
     },
 
     "engines": {
