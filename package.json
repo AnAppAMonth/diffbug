@@ -11,15 +11,31 @@
   
     "keywords": ["debug", "debugger", "probe"],
   
-    "main": "lib/probe.js",
+    "preferGlobal": true,
 
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
 
+    "bin": {
+        "diffbug": "./lib/diffbug.js"
+    },
+
     "dependencies": {
-        "acorn": "0.3.x",
-        "objectdiff": "1.1.x"
+        "q": "0.9.x",
+        "underscore": "1.5.x",
+        "underscore.string": "2.3.x",
+        "objectdiff": "1.1.x",
+        "esprima": "1.0.x",
+        "escodegen": "0.0.23",
+        "mkdirp": "0.3.x",
+        "nopt": "2.1.x",
+        "fileset": "0.1.x",
+        "which": "1.0.x",
+        "async": "0.2.x",
+        "abbrev": "1.0.x",
+        "wordwrap": "0.0.x",
+        "resolve": "0.4.x"
     },
 
     "engines": {
