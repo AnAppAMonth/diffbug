@@ -18,12 +18,12 @@ module.exports = {
             cb();
         },
 
-        "should cover line and function": function (test) {
+        "should trace line and function": function (test) {
             verifier.verify(test, [ 2 ], 42, { branches: { 1: [1, 0 ] }, functions: { 1: 1 }, statements: { '1': 1, '2': 1, '3': 1, '4': 1 } });
             test.done();
         },
 
-        "should not cover function": function (test) {
+        "should not trace function": function (test) {
             verifier.verify(test, [ 10 ], 15, { branches: { 1: [ 0, 1 ]}, functions: { 1: 0 }, statements: { '1': 1, '2': 1, '3': 0, '4': 1 } });
             test.done();
         }
@@ -39,12 +39,12 @@ module.exports = {
             cb();
         },
 
-        "should cover line and function": function (test) {
+        "should trace line and function": function (test) {
             verifier.verify(test, [ 2 ], 42, { branches: { 1: [1, 0 ] }, functions: { 1: 1 }, statements: { '1': 1, '2': 1, '3': 1 } });
             test.done();
         },
 
-        "should not cover function": function (test) {
+        "should not trace function": function (test) {
             verifier.verify(test, [ 10 ], 15, { branches: { 1: [ 0, 1 ]}, functions: { 1: 0 }, statements: { '1': 1, '2': 1, '3': 0 } });
             test.done();
         }
@@ -64,12 +64,12 @@ module.exports = {
             cb();
         },
 
-        "should cover line and function": function (test) {
+        "should trace line and function": function (test) {
             verifier.verify(test, [ 2 ], 42, { branches: { 1: [1, 0 ] }, functions: { 1: 1 }, statements: { 1: 1, 2: 1, 3: 1} });
             test.done();
         },
 
-        "should not cover function": function (test) {
+        "should not trace function": function (test) {
             verifier.verify(test, [ 10 ], 15, { branches: { 1: [ 0, 1 ]}, functions: { 1: 0 }, statements: { 1: 1, 2: 1, 3: 0 } });
             test.done();
         }
@@ -88,12 +88,12 @@ module.exports = {
             cb();
         },
 
-        "should not cover functions but should cover declarations": function (test) {
+        "should not trace functions but should trace declarations": function (test) {
             verifier.verify(test, [ 1 ], 2, { branches: { 1: [1, 0 ] }, functions: { 1: 0, 2: 0 }, statements: { 1: 1, 2: 0, 3: 1, 4: 0, 5: 1} });
             test.done();
         },
 
-        "should cover functions and declarations": function (test) {
+        "should trace functions and declarations": function (test) {
             verifier.verify(test, [ 10 ], 20, { branches: { 1: [ 0, 1 ]}, functions: { 1: 1, 2: 1 }, statements: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 } });
             test.done();
         }

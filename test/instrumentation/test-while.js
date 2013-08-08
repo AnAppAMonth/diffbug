@@ -16,11 +16,11 @@ module.exports = {
             cb();
         },
 
-        "should cover loop exactly once": function (test) {
+        "should trace loop exactly once": function (test) {
             verifier.verify(test, [ 1 ], 1, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1 } });
             test.done();
         },
-        "should cover loop multiple times": function (test) {
+        "should trace loop multiple times": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 10, '4': 1 } });
             test.done();
         }
@@ -37,12 +37,12 @@ module.exports = {
             cb();
         },
 
-        "should cover loop one time": function (test) {
+        "should trace loop one time": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 10, '4': 1 } });
             test.done();
         },
 
-        "should not cover loop at all": function (test) {
+        "should not trace loop at all": function (test) {
             verifier.verify(test, [ -1 ], 0, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 1 } });
             test.done();
         }
@@ -58,7 +58,7 @@ module.exports = {
             cb();
         },
 
-        "should cover multi-loop exactly once": function (test) {
+        "should trace multi-loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 10, '4': 1 } });
             test.done();
         }
@@ -80,7 +80,7 @@ module.exports = {
             cb();
         },
 
-        "should provide line/branch coverage when all branches exercised": function (test) {
+        "should provide line/branch trace when all branches exercised": function (test) {
             verifier.verify(test, [ 10 ], 19, {
                 branches: { '1': [ 9, 10 ] },
                 functions: {},
@@ -89,7 +89,7 @@ module.exports = {
             test.done();
         },
 
-        "should provide line/branch coverage when nothing exercised": function (test) {
+        "should provide line/branch trace when nothing exercised": function (test) {
             verifier.verify(test, [ -1 ], 0, {
                 branches: { '1': [ 0, 0 ] },
                 functions: {},

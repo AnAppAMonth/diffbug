@@ -15,7 +15,7 @@ module.exports = {
             cb();
         },
 
-        "should cover loop exactly once": function (test) {
+        "should trace loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 9, {
                 branches: { },
                 functions: {},
@@ -35,7 +35,7 @@ module.exports = {
             cb();
         },
 
-        "should cover loop exactly once": function (test) {
+        "should trace loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 9, {
                 branches: { },
                 functions: {},
@@ -55,7 +55,7 @@ module.exports = {
             cb();
         },
 
-        "should cover loop exactly once": function (test) {
+        "should trace loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 9, {
                 branches: { },
                 functions: {},
@@ -76,7 +76,7 @@ module.exports = {
             cb();
         },
 
-        "should cover loop one time": function (test) {
+        "should trace loop one time": function (test) {
             verifier.verify(test, [ 10 ], 9, {
                 branches: {},
                 functions: {},
@@ -85,7 +85,7 @@ module.exports = {
             test.done();
         },
 
-        "should not cover loop at all": function (test) {
+        "should not trace loop at all": function (test) {
             verifier.verify(test, [ -1 ], -10, {
                 branches: {},
                 functions: {},
@@ -105,7 +105,7 @@ module.exports = {
             cb();
         },
 
-        "should cover multi-loop exactly once": function (test) {
+        "should trace multi-loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 9, {
                 branches: { },
                 functions: {},
@@ -114,7 +114,7 @@ module.exports = {
             test.done();
         },
 
-        "should not cover loop at all": function (test) {
+        "should not trace loop at all": function (test) {
             verifier.verify(test, [ -1 ], -10, {
                 branches: {},
                 functions: {},
@@ -134,7 +134,7 @@ module.exports = {
             cb();
         },
 
-        "should cover multi-loop exactly once": function (test) {
+        "should trace multi-loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 9, {
                 branches: {},
                 functions: {},
@@ -158,7 +158,7 @@ module.exports = {
             cb();
         },
 
-        "should cover multi-loop exactly once": function (test) {
+        "should trace multi-loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 17, {
                 branches: { '1': [ 7, 17 ] },
                 functions: {},
@@ -183,7 +183,7 @@ module.exports = {
             cb();
         },
 
-        "should cover multi-loop exactly once": function (test) {
+        "should trace multi-loop exactly once": function (test) {
             verifier.verify(test, [ 10 ], 17, {
                 branches: { '1': [ 7, 17 ] },
                 functions: {},

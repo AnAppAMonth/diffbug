@@ -33,15 +33,15 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover one path": function (test) {
+            "should trace one path": function (test) {
                 verifier.verify(test, [ "1" ], "one", { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 0, 6: 0 } });
                 test.done();
             },
-            "should cover two path": function (test) {
+            "should trace two path": function (test) {
                 verifier.verify(test, [ "2" ], "two", { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { 1: 1, 2: 1, 3: 0, 4: 0, 5: 1, 6: 1 } });
                 test.done();
             },
-            "should cover unknown path": function (test) {
+            "should trace unknown path": function (test) {
                 verifier.verify(test, [ "3" ], "unknown", { branches: { '1': [ 0, 0 ] }, functions: {}, statements: { 1: 1, 2: 1, 3: 0, 4: 0, 5: 0, 6: 0 } });
                 test.done();
             }
@@ -59,15 +59,15 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover one path": function (test) {
+            "should trace one path": function (test) {
                 verifier.verify(test, [ "1" ], "one", { branches: { '1': [ 1, 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1, '5': 0, '6': 0, '7': 0 } });
                 test.done();
             },
-            "should cover two path": function (test) {
+            "should trace two path": function (test) {
                 verifier.verify(test, [ "2" ], "two", { branches: { '1': [ 0, 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 1, '6': 1, '7': 0 } });
                 test.done();
             },
-            "should cover unknown path": function (test) {
+            "should trace unknown path": function (test) {
                 verifier.verify(test, [ "4" ], "three", { branches: { '1': [ 0, 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 0, '6': 0, '7': 1 } });
                 test.done();
             }
@@ -85,15 +85,15 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover one path": function (test) {
+            "should trace one path": function (test) {
                 verifier.verify(test, [ "1" ], "one", { branches: { '1': [ 1, 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1, '5': 0, '6': 0, '7': 0 } });
                 test.done();
             },
-            "should cover two path": function (test) {
+            "should trace two path": function (test) {
                 verifier.verify(test, [ "2" ], "two", { branches: { '1': [ 0, 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 1, '6': 1, '7': 0 } });
                 test.done();
             },
-            "should cover unknown path": function (test) {
+            "should trace unknown path": function (test) {
                 verifier.verify(test, [ "4" ], "three", { branches: { '1': [ 0, 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 0, '6': 0, '7': 1 } });
                 test.done();
             }
@@ -111,15 +111,15 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover one path": function (test) {
+            "should trace one path": function (test) {
                 verifier.verify(test, [ "1" ], "onetwothree", { branches: { '1': [ 1, 1, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1, '5': 1 } });
                 test.done();
             },
-            "should cover two path": function (test) {
+            "should trace two path": function (test) {
                 verifier.verify(test, [ "2" ], "twothree", { branches: { '1': [ 0, 1, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 1, '5': 1 } });
                 test.done();
             },
-            "should cover unknown path": function (test) {
+            "should trace unknown path": function (test) {
                 verifier.verify(test, [ "4" ], "three", { branches: { '1': [ 0, 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 1 } });
                 test.done();
             }
@@ -137,15 +137,15 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover one path": function (test) {
+            "should trace one path": function (test) {
                 verifier.verify(test, [ "1" ], "onetwothree", { branches: { '1': [ 1, 1, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1, '5': 1 } });
                 test.done();
             },
-            "should cover two path": function (test) {
+            "should trace two path": function (test) {
                 verifier.verify(test, [ "2" ], "twothree", { branches: { '1': [ 0, 1, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 1, '5': 1 } });
                 test.done();
             },
-            "should cover unknown path": function (test) {
+            "should trace unknown path": function (test) {
                 verifier.verify(test, [ "4" ], "three", { branches: { '1': [ 0, 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 1 } });
                 test.done();
             }

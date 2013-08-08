@@ -15,11 +15,11 @@ module.exports = {
             cb();
         },
 
-        "should cover line and one branch": function (test) {
+        "should trace line and one branch": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: { 1: [1, 0 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
         },
-        "should cover line and other branch": function (test) {
+        "should trace line and other branch": function (test) {
             verifier.verify(test, [ 1 ], "undef", { branches: { 1: [ 0, 1 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
         }
@@ -46,10 +46,10 @@ module.exports = {
             verifier = helper.verifier("c:\\a\\b\\c\\d\\e.js", code);
             cb();
         },
-        "should have correct key in coverage variable": function (test) {
+        "should have correct key in trace variable": function (test) {
             verifier.verify(test, [ 1 ], "undef", { branches: { 1: [ 0, 1 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
-            var coverage = verifier.getCoverage(),
-                key = Object.keys(coverage)[0];
+            var trace = verifier.getTrace(),
+                key = Object.keys(trace)[0];
             test.equals("c:\\a\\b\\c\\d\\e.js", key);
             test.done();
         }
@@ -88,11 +88,11 @@ module.exports = {
             cb();
         },
 
-        "should cover line and one branch": function (test) {
+        "should trace line and one branch": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: { 1: [1, 0 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
         },
-        "should cover line and other branch": function (test) {
+        "should trace line and other branch": function (test) {
             verifier.verify(test, [ 1 ], "undef", { branches: { 1: [ 0, 1 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
         }
@@ -103,16 +103,16 @@ module.exports = {
                 'var x = args[0] > 5 ? args[0] : "undef";',
                 'output = x;'
             ];
-            verifier = helper.verifier(__filename, code, { embedSource: true, coverageVariable: null });
+            verifier = helper.verifier(__filename, code, { embedSource: true, traceVariable: null });
             cb();
         },
-        "coverage should have code packed in": function (test) {
+        "trace should have code packed in": function (test) {
             verifier.verifyNoError(test);
             verifier.verify(test, [ 10 ], 10, { branches: { 1: [1, 0 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
-            var cov = verifier.getCoverage(),
-                fileCov = cov[Object.keys(cov)[0]];
-            test.ok(fileCov.code.length > 1);
-            test.ok(fileCov.code[1] === 'output = x;');
+            var trc = verifier.getTrace(),
+                fileTrc = trc[Object.keys(trc)[0]];
+            test.ok(fileTrc.code.length > 1);
+            test.ok(fileTrc.code[1] === 'output = x;');
             test.done();
         }
     },
@@ -125,7 +125,7 @@ module.exports = {
             cb();
         },
 
-        "should pass coverage": function (test) {
+        "should pass trace": function (test) {
             verifier.verifyNoError(test);
             test.done();
         }
@@ -139,7 +139,7 @@ module.exports = {
             cb();
         },
 
-        "should fail coverage": function (test) {
+        "should fail trace": function (test) {
             verifier.verifyError(test);
             test.done();
         }
@@ -155,11 +155,11 @@ module.exports = {
             cb();
         },
 
-        "should cover line and one branch": function (test) {
+        "should trace line and one branch": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: { 1: [1, 0 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
         },
-        "should cover line and other branch": function (test) {
+        "should trace line and other branch": function (test) {
             verifier.verify(test, [ 1 ], "undef", { branches: { 1: [ 0, 1 ]}, functions: {}, statements: { 1: 1, 2: 1 } });
             test.done();
         }

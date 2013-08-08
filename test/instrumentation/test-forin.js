@@ -20,7 +20,7 @@ module.exports = {
             cb();
         },
 
-        "should cover loop exactly once": function (test) {
+        "should trace loop exactly once": function (test) {
             verifier.verify(test, [ 10, 0 ], 10, { branches: { 1: [1, 1], 2: [ 2, 2 ] }, functions: {}, statements: { 1: 1, 2: 1, 3: 1, 4: 2, 5: 1 } });
             test.done();
         }
@@ -41,7 +41,7 @@ module.exports = {
             cb();
         },
 
-        "should cover loop exactly once": function (test) {
+        "should trace loop exactly once": function (test) {
             verifier.verify(test, [ 10, 0 ], 10, { branches: { 1: [1, 1], 2: [ 2, 2 ] }, functions: {}, statements: { 1: 1, 2: 1, 3: 1, 4: 2, 5: 1 } });
             test.done();
         }

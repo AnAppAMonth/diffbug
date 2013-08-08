@@ -2,9 +2,9 @@
 var path = require('path'),
     rimraf = require('rimraf'),
     mkdirp = require('mkdirp'),
-    COMMAND = 'cover',
+    COMMAND = 'trace',
     DIR = path.resolve(__dirname, 'sample-project'),
-    OUTPUT_DIR = path.resolve(DIR, 'coverage'),
+    OUTPUT_DIR = path.resolve(DIR, 'diffbug'),
     helper = require('../cli-helper'),
 //    existsSync = fs.existsSync || path.existsSync,
     run = helper.runCommand.bind(null, COMMAND);
@@ -20,44 +20,44 @@ module.exports = {
         rimraf.sync(OUTPUT_DIR);
         cb();
     },
-    "should cover tests as expected": function (test) {
+    "should trace tests as expected": function (test) {
         helper.setOpts({ lazyHook : true });
         run([ 'test/run.js', '-v' ], function (results) {
             test.ok(results.succeeded());
             test.ok(results.grepError(/Module load hook:/));
-//            var coverage = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'coverage.json'), 'utf8')),
+//            var trace = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'trace.json'), 'utf8')),
 //                filtered;
-//            filtered = Object.keys(coverage).filter(function (k) { return k.match(/foo/) || k.match(/bar/); });
+//            filtered = Object.keys(trace).filter(function (k) { return k.match(/foo/) || k.match(/bar/); });
 //            test.ok(filtered.length === 2);
             test.done();
         });
     },
-    "should cover tests as expected without extra noise and not covering excluded files": function (test) {
+    "should trace tests as expected without extra noise and not tracing excluded files": function (test) {
         helper.setOpts({ lazyHook : true });
         run([ 'test/run.js', '-x', '**/foo.js' ], function (results) {
             test.ok(results.succeeded());
             test.ok(!results.grepError(/Module load hook:/));
-//            var coverage = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'coverage.json'), 'utf8')),
+//            var trace = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'trace.json'), 'utf8')),
 //                filtered;
-//            filtered = Object.keys(coverage).filter(function (k) { return k.match(/foo/); });
+//            filtered = Object.keys(trace).filter(function (k) { return k.match(/foo/); });
 //            test.ok(filtered.length === 0);
             test.done();
         });
     },
-    "should cover nothing when everything excluded": function (test) {
+    "should trace nothing when everything excluded": function (test) {
         helper.setOpts({ lazyHook : true });
         run([ 'test/run.js', '-x', '**/*.js' ], function (results) {
             test.ok(results.succeeded());
             test.done();
         });
     },
-    "should cover everything under the sun when default excludes are suppressed": function (test) {
+    "should trace everything under the sun when default excludes are suppressed": function (test) {
         helper.setOpts({ lazyHook : true });
         run([ 'test/run.js', '--no-default-exclude' ], function (results) {
             test.ok(results.succeeded());
-//            var coverage = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'coverage.json'), 'utf8')),
+//            var trace = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'trace.json'), 'utf8')),
 //                filtered;
-//            filtered = Object.keys(coverage).filter(function (k) { return k.match(/node_modules/); });
+//            filtered = Object.keys(trace).filter(function (k) { return k.match(/node_modules/); });
 //            test.ok(filtered.length === 1);
             test.done();
         });
@@ -65,7 +65,7 @@ module.exports = {
     "should barf when no file is provided": function (test) {
         run([], function (results) {
             test.ok(!results.succeeded());
-            test.ok(results.grepError(/Need a filename argument for the cover command/));
+            test.ok(results.grepError(/Need a filename argument for the trace command/));
             test.done();
         });
     },
@@ -81,11 +81,11 @@ module.exports = {
         run([ 'test/amd-run.js', '-v', '--hook-run-in-context' ], function (results) {
             test.ok(results.succeeded());
             test.ok(results.grepError(/Module load hook:/));
-//            var coverage = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'coverage.json'), 'utf8')),
+//            var trace = JSON.parse(fs.readFileSync(path.resolve(OUTPUT_DIR, 'trace.json'), 'utf8')),
 //                filtered;
-//            filtered = Object.keys(coverage).filter(function (k) { return k.match(/amd\/lorem/) || k.match(/amd\/ipsum/); });
+//            filtered = Object.keys(trace).filter(function (k) { return k.match(/amd\/lorem/) || k.match(/amd\/ipsum/); });
 //            test.ok(filtered.length === 2);
-//            test.ok(filtered.length === Object.keys(coverage).length);
+//            test.ok(filtered.length === Object.keys(trace).length);
             test.done();
         });
     },
@@ -96,9 +96,9 @@ module.exports = {
             test.ok(results.grepError(/PRH: MatchFn was a function/));
             test.ok(results.grepError(/PRH: TransformFn was a function/));
             test.ok(results.grepError(/PRH: Verbose was true/));
-            //yes, post require hook must be called always even when a file is not covered
+            //yes, post require hook must be called always even when a file is not traced
             test.ok(results.grepError(/PRH: Saw foo\.js/));
-            //and, of course, for covered files as well
+            //and, of course, for traced files as well
             test.ok(results.grepError(/PRH: Saw bar\.js/));
             test.done();
         });
@@ -110,9 +110,9 @@ module.exports = {
             test.ok(results.grepError(/PRH: MatchFn was a function/));
             test.ok(results.grepError(/PRH: TransformFn was a function/));
             test.ok(results.grepError(/PRH: Verbose was true/));
-            //yes, post require hook must be called always even when a file is not covered
+            //yes, post require hook must be called always even when a file is not traced
             test.ok(results.grepError(/PRH: Saw foo\.js/));
-            //and, of course, for covered files as well
+            //and, of course, for traced files as well
             test.ok(results.grepError(/PRH: Saw bar\.js/));
             test.done();
         });

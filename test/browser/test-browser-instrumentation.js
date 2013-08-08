@@ -57,13 +57,13 @@ module.exports = {
             port = 9000;
         try {
             console.log('Start server');
-            server = require('./support/server').create(port, process.env.SELF_COVER ? instrumenter : null, ROOT);
+            server = require('./support/server').create(port, null, ROOT);
             server.on('instrumented', function (file, instrumented) {
                 var code = fs.readFileSync(path.resolve(ROOT, file), 'utf8'),
                     serverSideInstrumented = instrumenter.instrumentSync(code, file);
                 test.equal(serverSideInstrumented, instrumented, 'No match for [' + file + ']');
             });
-            server.on('done', function (/* coverage */) {
+            server.on('done', function (/* trace */) {
                 finalFn();
                 test.done();
             });

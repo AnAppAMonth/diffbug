@@ -11,7 +11,7 @@ function Verifier(opts) {
     this.generatedCode = opts.generatedCode;
     this.err = opts.err;
     this.debug = opts.debug;
-    this.coverageVariable = opts.coverageVariable || '__coverage__';
+    this.traceVariable = opts.traceVariable || '__trace__';
 }
 
 function pad(str, len) {
@@ -30,7 +30,7 @@ function annotatedCode(code) {
 
 Verifier.prototype = {
 
-    verify: function (test, args, expectedOutput, expectedCoverage) {
+    verify: function (test, args, expectedOutput, expectedTrace) {
 
         if (this.err) {
             test.ok(false, "Cannot call verify when errors present");
@@ -40,19 +40,18 @@ Verifier.prototype = {
             return;
         }
         var actualOutput = this.fn(args),
-            fullCov = global[this.coverageVariable],
-            cov = fullCov[Object.keys(fullCov)[0]];
+            fullTrc = global[this.traceVariable],
+            trc = fullTrc[Object.keys(fullTrc)[0]];
 
-        test.ok(cov && typeof cov === 'object', 'No coverage found for [' + this.file + ']');
+        test.ok(trc && typeof trc === 'object', 'No trace found for [' + this.file + ']');
         test.deepEqual(expectedOutput, actualOutput, 'Output mismatch');
-        test.deepEqual(expectedCoverage.lines, cov.l, 'Line coverage mismatch');
-        test.deepEqual(expectedCoverage.functions, cov.f, 'Function coverage mismatch');
-        test.deepEqual(expectedCoverage.branches, cov.b, 'Branch coverage mismatch');
-        test.deepEqual(expectedCoverage.statements, cov.s, 'Statement coverage mismatch');
+        test.deepEqual(expectedTrace.functions, trc.f, 'Function trace mismatch');
+        test.deepEqual(expectedTrace.branches, trc.b, 'Branch trace mismatch');
+        test.deepEqual(expectedTrace.statements, trc.s, 'Statement trace mismatch');
     },
 
-    getCoverage: function () {
-        return global[this.coverageVariable];
+    getTrace: function () {
+        return global[this.traceVariable];
     },
 
     verifyError: function (test) {
@@ -72,14 +71,14 @@ function setup(file, codeArray, opts) {
 
     var expectError = opts.expectError,
         //exercise the case where RE substitutions for the preamble have $ signs
-        coverageVariable = typeof opts.coverageVariable === 'undefined' ? '$$coverage$$' : opts.coverageVariable,
+        traceVariable = typeof opts.traceVariable === 'undefined' ? '$$trace$$' : opts.traceVariable,
         ps = opts.embedSource || false,
         verifier,
-        cover = new Instrumenter({
+        trace = new Instrumenter({
             debug: opts.debug,
             walkDebug: opts.walkDebug,
             noAutoWrap: opts.noAutoWrap,
-            coverageVariable: coverageVariable,
+            traceVariable: traceVariable,
             embedSource: ps
         }),
         args = [ codeArray.join("\n")],
@@ -96,10 +95,10 @@ function setup(file, codeArray, opts) {
             }
             var wrappedCode = '(function (args) { var output;\n' + generated + '\nreturn output;\n})',
                 fn;
-            global[coverageVariable] = undefined;
+            global[traceVariable] = undefined;
             fn = vm.runInThisContext(wrappedCode, __filename);
             verifier = new Verifier({ debug: opts.debug, file: file, fn: fn, code: codeArray,
-                generatedCode: generated, coverageVariable: coverageVariable });
+                generatedCode: generated, traceVariable: traceVariable });
             if (opts.debug) {
                 console.log('================== Original ============================================');
                 console.log(annotatedCode(codeArray));
@@ -112,7 +111,7 @@ function setup(file, codeArray, opts) {
     if (file) { args.push(file); }
     args.push(callback);
     delete opts.expectError;
-    cover.instrument.apply(cover, args);
+    trace.instrument.apply(trace, args);
 
     return verifier;
 }

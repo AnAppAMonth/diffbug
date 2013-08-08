@@ -5,12 +5,12 @@ var path = require('path'),
     rimraf = require('rimraf'),
     mkdirp = require('mkdirp'),
     COMMAND = 'report',
-    COVER_COMMAND = 'cover',
+    TRACE_COMMAND = 'trace',
     outputDir = path.resolve(__dirname, 'output'),
     helper = require('../cli-helper'),
 //    existsSync = fs.existsSync || path.existsSync,
     run = helper.runCommand.bind(null, COMMAND),
-    runCover = helper.runCommand.bind(null, COVER_COMMAND),
+    runTrace = helper.runCommand.bind(null, TRACE_COMMAND),
     MAX_FILES = 1000;
 
 function fileFor(i) {
@@ -58,7 +58,7 @@ module.exports = {
     'should report correctly with 1000 code files': function (test) {
         createCode();
         createTest();
-        runCover([ 'test/test.js' ], function (results) {
+        runTrace([ 'test/test.js' ], function (results) {
             test.ok(results.succeeded());
 //            test.equal(MAX_FILES, Object.keys(obj).length);
             run([], function (/* results */) {

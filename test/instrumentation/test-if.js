@@ -16,11 +16,11 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover then path": function (test) {
+            "should trace then path": function (test) {
                 verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1 } });
                 test.done();
             },
-            "should cover else path": function (test) {
+            "should trace else path": function (test) {
                 verifier.verify(test, [ 10, 20 ], -1, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                 test.done();
             }
@@ -36,11 +36,11 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb();
             },
-            "should cover then path": function (test) {
+            "should trace then path": function (test) {
                 verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1 } });
                 test.done();
             },
-            "should cover else path": function (test) {
+            "should trace else path": function (test) {
                 verifier.verify(test, [ 10, 20 ], -1, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                 test.done();
             }
@@ -55,11 +55,11 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover then path": function (test) {
+                "should trace then path": function (test) {
                     verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1 } });
                     test.done();
                 },
-                "should cover else path": function (test) {
+                "should trace else path": function (test) {
                     verifier.verify(test, [ 10, 20 ], -1, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                     test.done();
                 }
@@ -73,11 +73,11 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover then path": function (test) {
+                "should trace then path": function (test) {
                     verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1 } });
                     test.done();
                 },
-                "should cover else path": function (test) {
+                "should trace else path": function (test) {
                     verifier.verify(test, [ 10, 20 ], -1, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                     test.done();
                 }
@@ -96,11 +96,11 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb(null);
             },
-            "should cover then path": function (test) {
+            "should trace then path": function (test) {
                 verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                 test.done();
             },
-            "should cover else path": function (test) {
+            "should trace else path": function (test) {
                 verifier.verify(test, [ 10, 20 ], 20, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                 test.done();
             }
@@ -117,11 +117,11 @@ module.exports = {
                 verifier = helper.verifier(__filename, code);
                 cb();
             },
-            "should cover then path": function (test) {
+            "should trace then path": function (test) {
                 verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                 test.done();
             },
-            "should cover else path": function (test) {
+            "should trace else path": function (test) {
                 verifier.verify(test, [ 10, 20 ], 20, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                 test.done();
             }
@@ -135,11 +135,11 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover then path": function (test) {
+                "should trace then path": function (test) {
                     verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                     test.done();
                 },
-                "should cover else path": function (test) {
+                "should trace else path": function (test) {
                     verifier.verify(test, [ 10, 20 ], 20, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                     test.done();
                 }
@@ -152,11 +152,11 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover then path": function (test) {
+                "should trace then path": function (test) {
                     verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                     test.done();
                 },
-                "should cover else path": function (test) {
+                "should trace else path": function (test) {
                     verifier.verify(test, [ 10, 20 ], 20, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                     test.done();
                 }
@@ -169,11 +169,11 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover then path": function (test) {
+                "should trace then path": function (test) {
                     verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                     test.done();
                 },
-                "should cover else path": function (test) {
+                "should trace else path": function (test) {
                     verifier.verify(test, [ 10, 20 ], 20, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                     test.done();
                 }
@@ -186,11 +186,11 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover then path": function (test) {
+                "should trace then path": function (test) {
                     verifier.verify(test, [ 20, 10 ], 20, { branches: { '1': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0 } });
                     test.done();
                 },
-                "should cover else path": function (test) {
+                "should trace else path": function (test) {
                     verifier.verify(test, [ 10, 20 ], 20, { branches: { '1': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1 } });
                     test.done();
                 }
@@ -208,15 +208,15 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover first else and nothing below": function (test) {
+                "should trace first else and nothing below": function (test) {
                     verifier.verify(test, [ 10, 20, 15 ], -1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0 } });
                     test.done();
                 },
-                "should cover first then": function (test) {
+                "should trace first then": function (test) {
                     verifier.verify(test, [ 20, 10, 15 ], -1, { branches: { '1': [ 1, 0 ], '2' : [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 0 } });
                     test.done();
                 },
-                "should cover first then and second then": function (test) {
+                "should trace first then and second then": function (test) {
                     verifier.verify(test, [ 20, 10, 5 ], 5, { branches: { '1': [ 1, 0 ], '2' : [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1 } });
                     test.done();
                 }
@@ -230,15 +230,15 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover first else and nothing below": function (test) {
+                "should trace first else and nothing below": function (test) {
                     verifier.verify(test, [ 10, 20, 15 ], -1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0 } });
                     test.done();
                 },
-                "should cover first then": function (test) {
+                "should trace first then": function (test) {
                     verifier.verify(test, [ 20, 10, 15 ], -1, { branches: { '1': [ 1, 0 ], '2' : [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 0 } });
                     test.done();
                 },
-                "should cover first then and second then": function (test) {
+                "should trace first then and second then": function (test) {
                     verifier.verify(test, [ 20, 10, 5 ], 5, { branches: { '1': [ 1, 0 ], '2' : [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1 } });
                     test.done();
                 }
@@ -254,15 +254,15 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover first else and nothing below": function (test) {
+                "should trace first else and nothing below": function (test) {
                     verifier.verify(test, [ 10, 20, 15 ], -1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 0 } });
                     test.done();
                 },
-                "should cover first then": function (test) {
+                "should trace first then": function (test) {
                     verifier.verify(test, [ 20, 10, 15 ], 10, { branches: { '1': [ 1, 0 ], '2' : [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 0, '5': 1 } });
                     test.done();
                 },
-                "should cover first then and second then": function (test) {
+                "should trace first then and second then": function (test) {
                     verifier.verify(test, [ 20, 10, 5 ], 5, { branches: { '1': [ 1, 0 ], '2' : [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1, '5': 0 } });
                     test.done();
                 }
@@ -283,19 +283,19 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover all else paths": function (test) {
+                "should trace all else paths": function (test) {
                     verifier.verify(test, [ 4, 3, 2, 1 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 0, '5': 1, '6': 0, '7': 1 } });
                     test.done();
                 },
-                "should cover one then path": function (test) {
+                "should trace one then path": function (test) {
                     verifier.verify(test, [ 4, 3, 1, 2 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 0, '5': 1, '6': 1, '7': 0 } });
                     test.done();
                 },
-                "should cover upper then paths": function (test) {
+                "should trace upper then paths": function (test) {
                     verifier.verify(test, [ 4, 2, 3, 1 ], 2, { branches: { '1': [ 0, 1 ], '2' : [ 1, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 1, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 },
-                "should cover uppermost then paths": function (test) {
+                "should trace uppermost then paths": function (test) {
                     verifier.verify(test, [ 1, 2, 3, 1 ], 1, { branches: { '1': [ 1, 0 ], '2' : [ 0, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 }
@@ -315,19 +315,19 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover all else paths": function (test) {
+                "should trace all else paths": function (test) {
                     verifier.verify(test, [ 4, 3, 2, 1 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 0, '5': 1, '6': 0, '7': 1 } });
                     test.done();
                 },
-                "should cover one then path": function (test) {
+                "should trace one then path": function (test) {
                     verifier.verify(test, [ 4, 3, 1, 2 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 0, '5': 1, '6': 1, '7': 0 } });
                     test.done();
                 },
-                "should cover upper then paths": function (test) {
+                "should trace upper then paths": function (test) {
                     verifier.verify(test, [ 4, 2, 3, 1 ], 2, { branches: { '1': [ 0, 1 ], '2' : [ 1, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 1, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 },
-                "should cover uppermost then paths": function (test) {
+                "should trace uppermost then paths": function (test) {
                     verifier.verify(test, [ 1, 2, 3, 1 ], 1, { branches: { '1': [ 1, 0 ], '2' : [ 0, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 }
@@ -340,19 +340,19 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover all else paths": function (test) {
+                "should trace all else paths": function (test) {
                     verifier.verify(test, [ 4, 3, 2, 1 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 0, '5': 1, '6': 0, '7': 1 } });
                     test.done();
                 },
-                "should cover one then path": function (test) {
+                "should trace one then path": function (test) {
                     verifier.verify(test, [ 4, 3, 1, 2 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 0, '5': 1, '6': 1, '7': 0 } });
                     test.done();
                 },
-                "should cover upper then paths": function (test) {
+                "should trace upper then paths": function (test) {
                     verifier.verify(test, [ 4, 2, 3, 1 ], 2, { branches: { '1': [ 0, 1 ], '2' : [ 1, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 0, '3': 1, '4': 1, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 },
-                "should cover uppermost then paths": function (test) {
+                "should trace uppermost then paths": function (test) {
                     verifier.verify(test, [ 1, 2, 3, 1 ], 1, { branches: { '1': [ 1, 0 ], '2' : [ 0, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 }
@@ -370,19 +370,19 @@ module.exports = {
                     verifier = helper.verifier(__filename, code);
                     cb();
                 },
-                "should cover all else paths": function (test) {
+                "should trace all else paths": function (test) {
                     verifier.verify(test, [ 4, 3, 2, 1 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 0, 1 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 1, '7': 0 } });
                     test.done();
                 },
-                "should cover one then path": function (test) {
+                "should trace one then path": function (test) {
                     verifier.verify(test, [ 4, 3, 1, 2 ], 1, { branches: { '1': [ 0, 1 ], '2' : [ 0, 1 ], '3': [ 1, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 1, '7': 1 } });
                     test.done();
                 },
-                "should cover upper then paths": function (test) {
+                "should trace upper then paths": function (test) {
                     verifier.verify(test, [ 4, 2, 3, 1 ], 2, { branches: { '1': [ 0, 1 ], '2' : [ 1, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 0, '4': 1, '5': 1, '6': 0, '7': 0 } });
                     test.done();
                 },
-                "should cover uppermost then paths": function (test) {
+                "should trace uppermost then paths": function (test) {
                     verifier.verify(test, [ 1, 2, 3, 1 ], 1, { branches: { '1': [ 1, 0 ], '2' : [ 0, 0 ], '3': [ 0, 0 ] }, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 0, '5': 0, '6': 0, '7': 0 } });
                     test.done();
                 }

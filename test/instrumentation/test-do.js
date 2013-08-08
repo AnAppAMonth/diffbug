@@ -16,12 +16,12 @@ module.exports = {
             cb();
         },
 
-        "should provide correct line coverage": function (test) {
+        "should provide correct line trace": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 10, '4': 1 } });
             test.done();
         },
 
-        "should cover single-entry into while": function (test) {
+        "should trace single-entry into while": function (test) {
             verifier.verify(test, [ -1 ], 1, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 1, '4': 1 } });
             test.done();
         }
@@ -39,12 +39,12 @@ module.exports = {
             cb();
         },
 
-        "should provide correct line coverage": function (test) {
+        "should provide correct line trace": function (test) {
             verifier.verify(test, [ 10 ], 10, { branches: {}, functions: {}, statements: { '1': 1, '2': 1, '3': 10, '4': 1 } });
             test.done();
         },
 
-        "should cover single-entry into while": function (test) {
+        "should trace single-entry into while": function (test) {
             verifier.verify(test, [ -1 ], 1, { branches: {}, functions: {}, statements:  { '1': 1, '2': 1, '3': 1, '4': 1 } });
             test.done();
         }

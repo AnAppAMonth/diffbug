@@ -96,14 +96,14 @@ module.exports = {
             test.done();
         });
     },
-    "should barf on directory coverage when output option is not provided": function (test) {
+    "should barf on directory instrumentation when output option is not provided": function (test) {
         run([ 'lib'], function (results) {
             test.ok(!results.succeeded());
             test.ok(results.grepError(/Need an output directory/));
             test.done();
         });
     },
-    "should barf on directory coverage when output === input": function (test) {
+    "should barf on directory instrumentation when output === input": function (test) {
         run([ 'lib', '--output', 'lib'], function (results) {
             test.ok(!results.succeeded());
             test.ok(results.grepError(/Cannot instrument into the same directory/));

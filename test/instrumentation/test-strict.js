@@ -22,7 +22,7 @@ module.exports = {
             cb();
         },
 
-        "should cover one statement less": function (test) {
+        "should trace one statement less": function (test) {
             verifier.verify(test, [], "pass", {
                 statements: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 0, 6: 1 },
                 branches: {},
@@ -50,7 +50,7 @@ module.exports = {
             cb();
         },
 
-        "should cover one statement less": function (test) {
+        "should trace one statement less": function (test) {
             verifier.verify(test, [], "pass", {
                 statements: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 0, 6: 1, 7: 1 },
                 branches: {},
@@ -79,7 +79,7 @@ module.exports = {
             cb();
         },
 
-        "should cover all statements as usual": function (test) {
+        "should trace all statements as usual": function (test) {
             verifier.verify(test, [], "fail", {
                 statements: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 0, 9: 1 },
                 branches: {},
